@@ -1,0 +1,113 @@
+# ═══════════════════════════════════════════════════════════════
+# LinkedIn Leather Goods Bot — Configuration
+# ═══════════════════════════════════════════════════════════════
+
+linkedin:
+  # Official LinkedIn API credentials (set via env vars)
+  client_id: "${LINKEDIN_CLIENT_ID}"
+  client_secret: "${LINKEDIN_CLIENT_SECRET}"
+  access_token: "${LINKEDIN_ACCESS_TOKEN}"
+  api_version: "202401"
+  base_url: "https://api.linkedin.com/v2"
+  rate_limit_per_hour: 100
+  request_delay_seconds: 3  # polite delay between requests
+
+search:
+  keywords:
+    - "leather goods"
+    - "leather products"
+    - "leather sourcing"
+    - "leather procurement"
+    - "leather supplier required"
+    - "leather manufacturer"
+    - "leather bags supplier"
+    - "leather accessories procurement"
+  post_types:
+    - "JOB"
+    - "SHARE"
+    - "UGC_POST"
+  max_results_per_keyword: 50
+  date_range_days: 1  # Look back 30 days
+
+regions:
+  europe:
+    - GB   # United Kingdom
+    - DE   # Germany
+    - FR   # France
+    - IT   # Italy
+    - ES   # Spain
+    - NL   # Netherlands
+    - BE   # Belgium
+    - PT   # Portugal
+    - SE   # Sweden
+    - NO   # Norway
+    - DK   # Denmark
+    - FI   # Finland
+    - PL   # Poland
+    - CZ   # Czech Republic
+    - AT   # Austria
+    - CH   # Switzerland
+  india:
+    - IN
+  east_asia:
+    - CN   # China
+    - JP   # Japan
+    - KR   # South Korea
+    - TW   # Taiwan
+    - HK   # Hong Kong
+  australia:
+    - AU
+    - NZ
+  americas:
+    - US   # United States
+    - CA   # Canada
+    - BR   # Brazil
+    - MX   # Mexico
+    - AR   # Argentina
+    - CO   # Colombia
+    - CL   # Chile
+
+email:
+  smtp_host: "${SMTP_HOST}"
+  smtp_port: 587
+  smtp_user: "${SMTP_USER}"
+  smtp_password: "${SMTP_PASSWORD}"
+  from_name: "Your Company Name"
+  from_email: "${FROM_EMAIL}"
+  sendgrid_api_key: "${SENDGRID_API_KEY}"  # Alternative to SMTP
+  use_sendgrid: false
+  retry_attempts: 3
+  retry_delay_seconds: 5
+
+company:
+  name: "Your Company Name"
+  tagline: "Premium Leather Goods Manufacturer Since 1995"
+  website: "https://www.yourcompany.com"
+  catalog_url: "https://www.yourcompany.com/catalog"
+  contact_email: "sales@yourcompany.com"
+  contact_phone: "+91-XXXXXXXXXX"
+  linkedin_page: "https://www.linkedin.com/company/yourcompany"
+  address: "Chennai, Tamil Nadu, India"
+  certifications:
+    - "ISO 9001:2015"
+    - "REACH Compliant"
+    - "LWG Certified"
+
+logging:
+  log_dir: "./logs"
+  log_format: "json"  # json or csv
+  rotation_days: 30
+  archive_dir: "./logs/archive"
+  level: "INFO"
+
+database:
+  type: "sqlite"  # sqlite or postgresql
+  #sqlite_path: "./data/linkedin_bot.db"
+  sqlite_path: "sqlite:///./data/linkedin_bot.db"
+  postgresql_url: "${DATABASE_URL}"  # For production
+
+compliance:
+  gdpr_enabled: true
+  data_retention_days: 30
+  opt_out_check: true
+  unsubscribe_url: "https://www.yourcompany.com/unsubscribe"

@@ -1,0 +1,46 @@
+# LinkedIn Leather Goods Bot — Requirements
+# Install: pip install -r requirements.txt
+
+# Core
+requests==2.31.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# LinkedIn API
+linkedin-api==2.1.1         # Unofficial fallback only; prefer official OAuth
+
+# Web Automation (fallback / supplemental scraping with consent)
+playwright==1.40.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Email
+sendgrid==6.11.0
+jinja2==3.1.2               # Email templating
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.12.1             # DB migrations
+
+# Logging & Monitoring
+loguru==0.7.2
+rich==13.7.0                # Beautiful terminal output
+
+# Scheduling
+apscheduler==3.10.4
+
+# Data Validation
+pydantic==2.5.0
+email-validator==2.1.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+responses==0.24.1           # Mock HTTP responses
+
+# Utilities
+tenacity==8.2.3             # Retry logic with exponential backoff
+python-dateutil==2.8.2
+tqdm==4.66.1                # Progress bars
+tabulate==0.9.0

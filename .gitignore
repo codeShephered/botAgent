@@ -1,0 +1,7 @@
+# Ignore environment file
+.env
+gitSpec
+env.example
+venv/
+__pycache__/
+.pytest_cache/

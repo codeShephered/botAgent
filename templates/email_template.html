@@ -1,0 +1,128 @@
+<!-- email_template.html — HTML version of the outreach email -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leather Goods Partnership Inquiry</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
+    .container { max-width:680px; margin:30px auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.08); }
+    .header { background: linear-gradient(135deg, #1a1a2e 0%, #8B4513 100%); padding:40px 40px 30px; text-align:center; }
+    .header img { width:120px; margin-bottom:16px; }
+    .header h1 { color:#ffffff; font-size:22px; margin:0; letter-spacing:1px; }
+    .header p  { color:#d4a574; font-size:13px; margin:6px 0 0; }
+    .body { padding:36px 40px; color:#333333; line-height:1.7; font-size:15px; }
+    .greeting { font-size:17px; font-weight:600; color:#1a1a2e; margin-bottom:16px; }
+    .highlight-box { background:#fdf6ee; border-left:4px solid #8B4513; padding:16px 20px; border-radius:0 6px 6px 0; margin:20px 0; }
+    .highlight-box p { margin:0; font-style:italic; color:#555; }
+    .products { display:flex; gap:10px; margin:24px 0; flex-wrap:wrap; }
+    .tag { background:#1a1a2e; color:#ffffff; padding:6px 14px; border-radius:20px; font-size:12px; letter-spacing:0.5px; }
+    .cta-btn { display:inline-block; background: linear-gradient(135deg, #8B4513, #a0522d); color:#ffffff !important; text-decoration:none; padding:14px 32px; border-radius:6px; font-weight:600; font-size:15px; margin:20px 0; }
+    .certifications { background:#f8f8f8; padding:16px 20px; border-radius:6px; margin:20px 0; }
+    .certifications p { margin:0 0 8px; font-weight:600; color:#1a1a2e; font-size:13px; }
+    .cert-badge { display:inline-block; border:1px solid #cccccc; padding:4px 12px; border-radius:4px; font-size:12px; color:#666; margin:3px; }
+    .footer { background:#1a1a2e; padding:24px 40px; text-align:center; }
+    .footer p  { color:#aaaaaa; font-size:12px; margin:4px 0; }
+    .footer a  { color:#d4a574; text-decoration:none; }
+    .divider   { height:1px; background:#eeeeee; margin:24px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>{{ company_name }}</h1>
+      <p>{{ company_tagline }}</p>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <p class="greeting">Dear {{ recipient_name }},</p>
+
+      <p>
+        I came across your recent LinkedIn post regarding
+        <strong>{{ requirement_summary }}</strong> and wanted to reach out directly.
+        We believe we may be exactly the manufacturing partner you are looking for.
+      </p>
+
+      <div class="highlight-box">
+        <p>
+          "{{ post_snippet }}"
+        </p>
+      </div>
+
+      <p>
+        <strong>{{ company_name }}</strong> is a premium leather goods manufacturer
+        based in <strong>{{ company_location }}</strong>, with over two decades of
+        experience supplying high-quality leather products to global brands across
+        Europe, East Asia, and the Americas.
+      </p>
+
+      <div class="divider"></div>
+
+      <p><strong>Our Core Product Range:</strong></p>
+      <div class="products">
+        <span class="tag">Leather Handbags</span>
+        <span class="tag">Wallets & Cardholders</span>
+        <span class="tag">Belts & Accessories</span>
+        <span class="tag">Laptop Bags</span>
+        <span class="tag">Custom OEM / ODM</span>
+        <span class="tag">Travel Luggage</span>
+      </div>
+
+      <p>
+        We work with buyers on a <strong>MOQ-flexible basis</strong>, support
+        private label and custom design, and can provide samples within
+        <strong>7–10 business days</strong>.
+      </p>
+
+      <div class="certifications">
+        <p>🏅 Our Certifications:</p>
+        {% for cert in certifications %}
+          <span class="cert-badge">{{ cert }}</span>
+        {% endfor %}
+      </div>
+
+      <p>
+        We'd love to learn more about your specific requirements and discuss how
+        we can serve you. Would you be available for a brief call this week?
+      </p>
+
+      <a href="{{ catalog_url }}" class="cta-btn">📂 View Our Product Catalog</a>
+
+      <div class="divider"></div>
+
+      <p>
+        Looking forward to the possibility of working together.
+      </p>
+
+      <p>
+        Warm regards,<br/>
+        <strong>{{ sender_name }}</strong><br/>
+        <em>Sales &amp; Export Manager</em><br/>
+        {{ company_name }}<br/>
+        📧 <a href="mailto:{{ contact_email }}">{{ contact_email }}</a><br/>
+        📞 {{ contact_phone }}<br/>
+        🌐 <a href="{{ company_website }}">{{ company_website }}</a><br/>
+        🔗 <a href="{{ linkedin_page }}">LinkedIn Company Page</a>
+      </p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>You are receiving this email because you posted a leather goods requirement on LinkedIn.</p>
+      <p>
+        <a href="{{ unsubscribe_url }}?email={{ recipient_email }}">Unsubscribe</a>
+        &nbsp;|&nbsp;
+        <a href="{{ company_website }}/privacy">Privacy Policy</a>
+      </p>
+      <p style="margin-top:12px; color:#666;">{{ company_name }} · {{ company_address }}</p>
+    </div>
+
+  </div>
+</body>
+</html>
